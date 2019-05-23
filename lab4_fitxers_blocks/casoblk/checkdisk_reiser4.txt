@@ -1,0 +1,7 @@
+root@dreapab-HP-EliteDesk-800-G1-TWR:/home/dreapab/lab5/casoblk# ./check-disk.sh reiser4
+** using reiser4 filesystem *******
+** Module myblkdrv is correctly loaded *******
+** creating reiser4 filesystem *******
+mkfs: failed to execute mkfs.reiser4: No such file or directory
+Test UNSUCCESSFUL!!!!!
+

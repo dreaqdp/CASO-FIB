@@ -1,0 +1,70 @@
+struct processor_basic_info {
+        cpu_type_t      cpu_type;       /* type of cpu */
+        cpu_subtype_t   cpu_subtype;    /* subtype of cpu */
+/*boolean_t*/integer_t  running;        /* is processor running */
+        integer_t       slot_num;       /* slot number */
+/*boolean_t*/integer_t  is_master;      /* is this the master processor */
+};
+
+
+5.3
+0: Getting processors at array 0x0
+        processors at array 0x1033000 (count 1)
+        Writing to memory area... 0x1033000
+0: Getting memory at location 0x0
+        New vm_map memory at 0x12e3000
+        Writing to memory area... 0x12e3000
+1: Getting processors at array 0x0
+        processors at array 0x12e5000 (count 1)
+        Writing to memory area... 0x12e5000
+1: Getting memory at location 0x0
+        New vm_map memory at 0x12e6000
+        Writing to memory area... 0x12e6000
+2: Getting processors at array 0x0
+        processors at array 0x12e8000 (count 1)
+        Writing to memory area... 0x12e8000
+2: Getting memory at location 0x0
+        New vm_map memory at 0x12e9000
+        Writing to memory area... 0x12e9000
+3: Getting processors at array 0x0
+        processors at array 0x12eb000 (count 1)
+        Writing to memory area... 0x12eb000
+3: Getting memory at location 0x0
+        New vm_map memory at 0x12ec000
+        Writing to memory area... 0x12ec000
+
+5.5
+/*
+ *      Protection values, defined as bits within the vm_prot_t type
+ */
+
+#define VM_PROT_NONE    ((vm_prot_t) 0x00)
+
+#define VM_PROT_READ    ((vm_prot_t) 0x01)      /* read permission */
+#define VM_PROT_WRITE   ((vm_prot_t) 0x02)      /* write permission */
+#define VM_PROT_EXECUTE ((vm_prot_t) 0x04)      /* execute permission */
+
+/*
+ *      The default protection for newly-created virtual memory
+ */
+
+#define VM_PROT_DEFAULT (VM_PROT_READ|VM_PROT_WRITE)
+
+/*
+ *      The maximum privileges possible, for parameter checking.
+ */
+
+#define VM_PROT_ALL     (VM_PROT_READ|VM_PROT_WRITE|VM_PROT_EXECUTE)
+
+/*
+ *      An invalid protection value.
+ *      Used only by memory_object_lock_request to indicate no change
+ *      to page locks.  Using -1 here is a bad idea because it
+ *      looks like VM_PROT_ALL and then some.
+ */
+#define VM_PROT_NO_CHANGE       ((vm_prot_t) 0x08)
+
+/*
+ *      This protection value says whether special notification is to be used.
+ */
+#define VM_PROT_NOTIFY          ((vm_prot_t) 0x10)

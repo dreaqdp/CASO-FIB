@@ -1,0 +1,24 @@
+ex5)
+
+77777700 c1c0 c3c2 c5c4 c7c6 c9c8 cbca cdcc cfce
+77777720 d1d0 d3d2 d5d4 d7d6 d9d8 dbda dddc dfde
+77777740 e1e0 e3e2 e5e4 e7e6 e9e8 ebea edec efee
+77777760 f1f0 f3f2 f5f4 f7f6 f9f8 fbfa fdfc fffe
+
+ex6)
+
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+Device does not contain a recognized partition table.
+Created a new DOS disklabel with disk identifier 0xab0d5701.
+
+Command (m for help): n
+Partition type
+   p   primary (0 primary, 0 extended, 4 free)
+   e   extended (container for logical partitions)
+Select (default p): w
+Value out of range.
+   p   primary (0 primary, 0 extended, 4 free)
+   e   extended (container for logical partitions)
+

@@ -1,0 +1,41 @@
+root@dreapab-HP-EliteDesk-800-G1-TWR:/home/dreapab/lab5/casoblk# ./check-disk.sh ext2
+** using ext2 filesystem *******
+** Loading module myblkdrv *******
+** creating ext2 filesystem *******
+mke2fs 1.44.1 (24-Mar-2018)
+Discarding device blocks: done                            
+Creating filesystem with 16384 1k blocks and 4096 inodes
+Filesystem UUID: 23005ec9-fc20-4ee5-8808-5bf9bb231de5
+Superblock backups stored on blocks: 
+	8193
+
+Allocating group tables: done                            
+Writing inode tables: done                            
+Writing superblocks and filesystem accounting information: done
+
+** checking ext2 filesystem *******
+fsck from util-linux 2.31.1
+e2fsck 1.44.1 (24-Mar-2018)
+/dev/xrd1: clean, 11/4096 files, 661/16384 blocks
+** mounting device *******
+** copying files *******
+** verifying files *******
+  ** comparing check-disk.sh *******
+  ** comparing check-partition.sh *******
+  ** comparing implementation.c *******
+  ** comparing implementation.c-template *******
+  ** comparing implementation.o *******
+  ** comparing interface.c *******
+  ** comparing interface.h *******
+  ** comparing interface.o *******
+  ** comparing log.txt *******
+  ** comparing Makefile *******
+  ** comparing modules.order *******
+  ** comparing Module.symvers *******
+  ** comparing myblkdrv.ko *******
+  ** comparing myblkdrv.mod.c *******
+  ** comparing myblkdrv.mod.o *******
+  ** comparing myblkdrv.o *******
+** unmounting device *******
+Test   SUCCESSFUL!!
+

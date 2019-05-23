@@ -1,0 +1,45 @@
+root@dreapab-HP-EliteDesk-800-G1-TWR:/home/dreapab/lab5/casoblk# ./check-disk.sh ext4
+** using ext4 filesystem *******
+** Module myblkdrv is correctly loaded *******
+** creating ext4 filesystem *******
+mke2fs 1.44.1 (24-Mar-2018)
+/dev/xrd1 contains a ext3 file system
+	last mounted on /mnt/point on Thu May  2 09:49:07 2019
+Proceed anyway? (y,N) y
+Discarding device blocks: done                            
+Creating filesystem with 16384 1k blocks and 4096 inodes
+Filesystem UUID: ccf53d21-3ac8-4cd6-a408-4aa02af9f255
+Superblock backups stored on blocks: 
+	8193
+
+Allocating group tables: done                            
+Writing inode tables: done                            
+Creating journal (1024 blocks): done
+Writing superblocks and filesystem accounting information: done
+
+** checking ext4 filesystem *******
+fsck from util-linux 2.31.1
+e2fsck 1.44.1 (24-Mar-2018)
+/dev/xrd1: clean, 11/4096 files, 1813/16384 blocks
+** mounting device *******
+** copying files *******
+** verifying files *******
+  ** comparing check-disk.sh *******
+  ** comparing check-partition.sh *******
+  ** comparing implementation.c *******
+  ** comparing implementation.c-template *******
+  ** comparing implementation.o *******
+  ** comparing interface.c *******
+  ** comparing interface.h *******
+  ** comparing interface.o *******
+  ** comparing log.txt *******
+  ** comparing Makefile *******
+  ** comparing modules.order *******
+  ** comparing Module.symvers *******
+  ** comparing myblkdrv.ko *******
+  ** comparing myblkdrv.mod.c *******
+  ** comparing myblkdrv.mod.o *******
+  ** comparing myblkdrv.o *******
+** unmounting device *******
+Test   SUCCESSFUL!!
+

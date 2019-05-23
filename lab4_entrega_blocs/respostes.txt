@@ -1,0 +1,27 @@
+Andrea Querol i Pablo Vizcaino
+
+
++-------+----------+-------------------------------------------------------------------------------------------------------------------+
+| Prova | Resultat |                                                     Comentari                                                     |
++-------+----------+-------------------------------------------------------------------------------------------------------------------+
+| 1     | Tot ok   |                                                                                                                   |
+| 2     | Tot ok   | A nosaltres no ens ha donat error                                                                                 |
+| 3     | Tot ok   | A nosaltres no ens ha donat error                                                                                 |
+| 4     | Tot ok   |                                                                                                                   |
+| 5     | Tot ok   |                                                                                                                   |
+| 6     | Tot ok   | Al principi vam tenir dificultats amb fdisk                                                                       |
+| 7     | Tot ok   |                                                                                                                   |
+| 8     | Tot ok   |                                                                                                                   |
+| 9     | Tot ok   |                                                                                                                   |
+| 10    | Tot ok   | Vam tenir problemes al principi perquè feiem control d'errors de memcopy quan aquesta sempre retorna una direcció |
+| 11    | Tot ok   |                                                                                                                   |
+| 12a   | Tot ok   |                                                                                                                   |
+| 12b   | Tot ok   |                                                                                                                   |
+| 13    | Tot ok   | Tot i que el número de sector és un nombre negatiu, adjuntem captura (13_captura_dmsg.png)                        |
+| 14    | Tot ok   | No el podiem treure amb rmmod perquè estava en ús                                                                 |
+| 15    | Ok       | ext2, vfat, ext3, ext4: Test SUCCESSFULL; reiserfs, reiser4: Test UNSUCCESSFULL                                   |
+| 16    | Ok       | ext2, vfat, ext3, ext4: Test SUCCESSFULL; reiserfs, reiser4: Test UNSUCCESSFULL                                   |
++-------+----------+-------------------------------------------------------------------------------------------------------------------+
+
+15.
+Reiserfs i reiser4 dona error al intentar muntar-lo perque no està el fitxer mkfs.reiserfs ni el mkfs.reiser4 al directori /sbin/

@@ -1,0 +1,7 @@
+root@dreapab-HP-EliteDesk-800-G1-TWR:/home/dreapab/lab5/casoblk# ./check-disk.sh reiserfs
+** using reiserfs filesystem *******
+** Module myblkdrv is correctly loaded *******
+** creating reiserfs filesystem *******
+mkfs: failed to execute mkfs.reiserfs: No such file or directory
+Test UNSUCCESSFUL!!!!!
+

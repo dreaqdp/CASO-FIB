@@ -1,0 +1,49 @@
+root@dreapab-HP-EliteDesk-800-G1-TWR:/home/dreapab/lab5/casoblk# ./check-disk.sh vfat
+** using vfat filesystem *******
+** Module myblkdrv is correctly loaded *******
+** creating vfat filesystem *******
+mkfs.fat 4.1 (2017-01-24)
+** checking vfat filesystem *******
+fsck from util-linux 2.31.1
+fsck.fat 4.1 (2017-01-24)
+/dev/xrd1: 0 files, 0/8167 clusters
+** mounting device *******
+** copying files *******
+tar: ./.cache.mk: Cannot change ownership to uid 1000, gid 1000: Operation not permitted
+tar: ./Module.symvers: Cannot change ownership to uid 1000, gid 1000: Operation not permitted
+tar: ./.myblkdrv.o.cmd: Cannot change ownership to uid 1000, gid 1000: Operation not permitted
+tar: ./check-partition.sh: Cannot change ownership to uid 1000, gid 1000: Operation not permitted
+tar: ./check-disk.sh: Cannot change ownership to uid 1000, gid 1000: Operation not permitted
+tar: ./log.txt: Cannot change ownership to uid 1000, gid 1000: Operation not permitted
+tar: ./interface.c: Cannot change ownership to uid 1000, gid 1000: Operation not permitted
+tar: ./.myblkdrv.ko.cmd: Cannot change ownership to uid 1000, gid 1000: Operation not permitted
+tar: ./Makefile: Cannot change ownership to uid 1000, gid 1000: Operation not permitted
+tar: ./implementation.c-template: Cannot change ownership to uid 1000, gid 1000: Operation not permitted
+tar: ./myblkdrv.mod.c: Cannot change ownership to uid 1000, gid 1000: Operation not permitted
+tar: ./.log.txt.swp: Cannot change ownership to uid 1000, gid 1000: Operation not permitted
+tar: ./implementation.c: Cannot change ownership to uid 1000, gid 1000: Operation not permitted
+tar: ./.tmp_versions: Cannot change ownership to uid 1000, gid 1000: Operation not permitted
+tar: ./modules.order: Cannot change ownership to uid 1000, gid 1000: Operation not permitted
+tar: ./interface.h: Cannot change ownership to uid 1000, gid 1000: Operation not permitted
+tar: .: Cannot change ownership to uid 1000, gid 1000: Operation not permitted
+tar: Exiting with failure status due to previous errors
+** verifying files *******
+  ** comparing check-disk.sh *******
+  ** comparing check-partition.sh *******
+  ** comparing implementation.c *******
+  ** comparing implementation.c-template *******
+  ** comparing implementation.o *******
+  ** comparing interface.c *******
+  ** comparing interface.h *******
+  ** comparing interface.o *******
+  ** comparing log.txt *******
+  ** comparing Makefile *******
+  ** comparing modules.order *******
+  ** comparing Module.symvers *******
+  ** comparing myblkdrv.ko *******
+  ** comparing myblkdrv.mod.c *******
+  ** comparing myblkdrv.mod.o *******
+  ** comparing myblkdrv.o *******
+** unmounting device *******
+Test   SUCCESSFUL!!
+

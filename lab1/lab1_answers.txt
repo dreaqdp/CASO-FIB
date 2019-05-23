@@ -1,0 +1,62 @@
+Alumnes: Andrea Querol i Pablo Vizcaino
+CASO : Pràctica 1 
+
+RESPOSTES
+- vector-mem.O0, versió sense optimitzacions
+    Funciona, temps d’execució real: 4.21
+- vector-mem.O1, versió amb optimitzacions senzilles
+    Funciona, temps d’execució real: 2.76
+- vector-mem.O2, versió amb optimitzacions estàndard
+    Funciona, temps d’execució real: 2.74
+- vector-mem.O3, versió amb optimitzacions agressives
+    Funciona, temps d’execució real: 2.43
+- vector-simd, versió amb extensions SIMD
+    Funciona, temps d’execució real: 2.47 (-mavx) i 2.42 (-mavx2)
+    
+
+El programa reserva memoria per 3 vectors tipus float de 128 posicions i comprova que s'hagin reservat correctament. Si s'han reservat sense problemes, inicialitza els vectors, suma 2 i guarda el resultat al vector restant i realitza el mateix després multiplicant (el vector amb el resultat acaba tenint el resultat de la multiplicació dels 2 restants).    
+L'única versió que no ens ha funcionat és la SIMD compilada amb -mavx512f. Hem buscat informació sobre aquesta extenció, AVX512-F, i hem trobat que és una set d'instruccions que està disponible per Knights Landing processors i Skylake-X CPUs. A continuació, hem buscat la família a la que pertany el processador de l'ordinador (i7 4770), la qual és Haswell. Hem comprovat que aquesta familia de processadors no suporta AVX512, però sí AVX i AVX2.
+
+LOG
+1)Conectar i desconectar el USB stick per comprovar que és el /dev/sdb
+
+2) Descarreguem la distribució de Linux Manjaro i la copiem al USB amb la
+   comanda dd.
+	2.1) Intentem bootar des del USB però ens dóna un error de fs.
+
+3) Després  d'intentar-ho uns quants cops, provem a instalar Ubuntu.
+	3.1) Ara quan intentem bootar des del USB se'ns carrega el sistema del 
+	     lab en comptes del nou Ubuntu.
+
+4) Com a solució, intentem cremar l'imatge de Manjaro des de Windows en comptes
+   de Linux (utilitzant el programa Rufus).
+	4.1) Al intentar bootar ens segueix donant errors així que demanem ajuda
+    	     al professor i ens deixa ell un USB amb Ubuntu.
+
+5) Amb el nou USB podem instalar Ubuntu sense problemes, creant les particions
+   necessaries.
+
+6) Bootem i comprovem que tenim accés a internet.
+
+7) Intentem compilar un hello world
+	7.1) No ens troba el Gcc, intentem instalar-lo amb un apt-get de
+	     build_essential tal i com diu la documentació de la pràctica
+	7.2) Ens el troba amb build-essential (guió en comptes de barrabaixa)
+
+8) Ens compila i s'executa correctament.
+
+9) Comprovem amb la comanda "file" que ens l'ha compilat amb 64 bits.
+
+10) Per compilar-lo amb 32 bits, afegim el flag -m32 al gcc
+
+	10.1) No ens compila, no troba un header que necessita pel -m32
+	10.2) Instalem gcc-multilib (inclou el -m32)
+
+11) Ara sí que es compila i executa i amb la comanda "file" ens confirma els
+    32 bits
+
+12) Ens descarreguem, compilem i executem el programa vector-support de la web
+    de CASO
+
+13) El funcionament i problemes d'aquest programa s'explica a les respostes de
+    la pràctica.

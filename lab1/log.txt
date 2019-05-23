@@ -1,0 +1,49 @@
+Alumnes: Andrea Querol i Pablo Vizcaino
+
+CASO : Pràctica 1 
+
+-Log-
+
+1)Conectar i desconectar el USB stick per comprovar que és el /dev/sdb
+
+2) Descarreguem la distribució de Linux Manjaro i la copiem al USB amb la
+   comanda dd.
+	2.1) Intentem bootar des del USB però ens dóna un error de fs.
+
+3) Després  d'intentar-ho uns quants cops, provem a instalar Ubuntu.
+	3.1) Ara quan intentem bootar des del USB se'ns carrega el sistema del 
+	     lab en comptes del nou Ubuntu.
+
+4) Com a solució, intentem cremar l'imatge de Manjaro des de Windows en comptes
+   de Linux (utilitzant el programa Rufus).
+	4.1) Al intentar bootar ens segueix donant errors així que demanem ajuda
+    	     al professor i ens deixa ell un USB amb Ubuntu.
+
+5) Amb el nou USB podem instalar Ubuntu sense problemes, creant les particions
+   necessaries.
+
+6) Bootem i comprovem que tenim accés a internet.
+
+7) Intentem compilar un hello world
+	7.1) No ens troba el Gcc, intentem instalar-lo amb un apt-get de
+	     build_essential tal i com diu la documentació de la pràctica
+	7.2) Ens el troba amb build-essential (guió en comptes de barrabaixa)
+
+8) Ens compila i s'executa correctament.
+
+9) Comprovem amb la comanda "file" que ens l'ha compilat amb 64 bits.
+
+10) Per compilar-lo amb 32 bits, afegim el flag -m32 al gcc
+
+	10.1) No ens compila, no troba un header que necessita pel -m32
+	10.2) Instalem gcc-multilib (inclou el -m32)
+
+11) Ara sí que es compila i executa i amb la comanda "file" ens confirma els
+    32 bits
+
+12) Ens descarreguem, compilem i executem el programa vector-support de la web
+    de CASO
+
+13) El funcionament i problemes d'aquest programa s'explica a les respostes de
+    la pràctica.
+

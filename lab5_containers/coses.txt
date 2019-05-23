@@ -1,0 +1,80 @@
+1, 2.
+no container:
+ps -U root -u root u | grep init
+root         1  0.0  0.1 225892  9744 ?        Ss   08:05   0:03 /sbin/init splash
+root     31453  0.0  0.0   2320    12 ?        Ss   09:17   0:00 init
+root     31501  0.0  0.0   2320    96 pts/0    Ss+  09:17   0:00 init
+
+ps -U root -u root u | grep syslogdroot     31494  0.0  0.0   2320    84 ?        Ss   09:17   0:00 /bin/syslogd
+
+
+ps -U root -u root u | grep udhcpc
+root     31499  0.0  0.0   2320    84 ?        Ss   09:17   0:00 /bin/udhcpc
+
+ps -U root -u root u | grep getty
+root     31500  0.0  0.0   2320     4 pts/0    Ss+  09:17   0:00 /bin/getty -L tty1 115200 vt100
+
+ps -U root -u root u | grep /sh
+root     31506  0.0  0.0   2320     4 pts/2    Ss+  09:17   0:00 /bin/sh
+
+
+
+container
+PID   USER     COMMAND
+    1 root     init
+    4 root     /bin/syslogd
+    9 root     /bin/udhcpc
+   10 root     /bin/getty -L tty1 115200 vt100
+   11 root     init
+   12 root     /bin/sh
+   34 root     {exe} ps
+
+3.
+container
+ls /proc/
+1
+10
+11
+12
+13
+4 
+9  
+
+
+4.
+man lxc-cgroup
+lxc-cgroup -n foo cpuset.cpus "0,3"
+              assign the processors 0 and 3 to the container.
+lxc-cgroup -n busybox cpuset.cpus "0,2,4,6"
+
+8.
+find . -type f -size 2062296c | xargs ls -lh
+find: ‘./run/user/1000/gvfs’: Permission denied
+find: ‘./proc/3531/task/3531/fdinfo/6’: No such file or directory
+find: ‘./proc/3531/fdinfo/5’: No such file or directory
+-rwxr-xr-x 1 root root 2,0M mar  6 21:51 ./bin/busybox
+-rwsr-sr-x 2 root root 2,0M may  9 08:55 ./var/lib/lxc/busybox/rootfs/bin/busybox
+-rwsr-sr-x 2 root root 2,0M may  9 08:55 ./var/lib/lxc/busybox/rootfs/sbin/init
+
+ls -la /bin/
+total 12640
+drwxr-xr-x  2 root root    4096 may  9 08:18 .
+drwxr-xr-x 26 root root    4096 may 16 08:17 ..
+-rwxr-xr-x  1 root root 1113504 abr  4  2018 bash
+-rwxr-xr-x  1 root root  748968 abr 17  2018 brltty
+-rwxr-xr-x  1 root root   34888 ene 29  2017 bunzip2
+-rwxr-xr-x  1 root root 2062296 mar  6 21:51 busybox
+
+
+9.
+dins container
+cat /etc/passwd 
+root:x:0:0:root:/root:/bin/sh
+
+cat group 
+root:x:0:root
+
+passwd afegit:
+xd:x:1:0:hey:/home/xd:/bin/sh
+
+

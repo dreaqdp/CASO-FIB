@@ -1,0 +1,89 @@
+Andrea Querol i Pablo Vizcaino
+
+LABORATORI 6 - CONTAINERS
+
+1. 
+Hem fet "ps" dins del container per identificar els processos que s'executaven. Fora hem executat "ps -U root -u root u" i hem buscat els noms dels processos del container.
+
+2.
+       +-------------+---------------+--------------------+
+       | Nom procs   | PID container | PID fora container |
+       +-------------+---------------+--------------------+
+       |    init     |       1       |       31453        |
+       +-------------+---------------+--------------------+
+       |/bin/syslogd |       4       |       31494        |
+       +-------------+---------------+--------------------+
+       |/bin/udhcpc  |       9       |       31499        |
+       +-------------+---------------+--------------------+
+       | /bin/getty  |      10       |       31500        |
+       +-------------+---------------+--------------------+
+       |    init     |      11       |       31501        |
+       +-------------+---------------+--------------------+
+       |  /bin/sh    |      12       |       31506        |
+       +-------------+---------------+--------------------+
+
+3.
+Hem trobat tots els processos en les carpetes /proc/ tant de dins del container com de fora. Quan comparavem el contingut de la carpeta /proc/pid/status dins i fora, els valorsd'aquests camps canviaven: NStgid, NSPiid.
+
+4.
+$ lxc-cgroup -n busybox cpuset.cpus "0,2,4,6"
+
+5.
+Hem executat la comanda:
+$ top 
+Prement la tecla f, hem accedit al "fields management" i hem afegit el camp P (Last Used CPU). 
+
+6.
+$ taskset -p PID
+retorna una màscara en hexa indicant els processadors que pot utilitzar.
+Hem observat que el init amb pid 1 (al container) no tenia un processador parell assignat.
+
+7.
+/var/lib/lxc/busybox/rootfs/
+Per comprovar que era el directori correcte, hem creat un fitxer dins des de fora el container. Després hem comprovat des del container que aquest fitxer hi estava.
+
+8.
+Fent un "ls -la" a la carpeta /var/lib/lxc/busybox/rootfs/sbin vam trobar el tamany del  binari init (2062296 bytes). 
+A continuació, vam buscar fora del container fitxers d'aquesta mida i vam obtenir els següents resultats:
+
+$ find . -type f -size 2062296c | xargs ls -lh
+-rwxr-xr-x 1 root root 2,0M mar  6 21:51 ./bin/busybox
+-rwsr-sr-x 2 root root 2,0M may  9 08:55 ./var/lib/lxc/busybox/rootfs/bin/busybox
+-rwsr-sr-x 2 root root 2,0M may  9 08:55 ./var/lib/lxc/busybox/rootfs/sbin/init
+
+Vam observar que a la carpeta /bin/ es trobava el binari de busybox, i la seva mida coincidia amb la mida del init dins del container.
+
+$ ls -la /bin/
+total 12640
+drwxr-xr-x  2 root root    4096 may  9 08:18 .
+drwxr-xr-x 26 root root    4096 may 16 08:17 ..
+-rwxr-xr-x  1 root root 1113504 abr  4  2018 bash
+-rwxr-xr-x  1 root root  748968 abr 17  2018 brltty
+-rwxr-xr-x  1 root root   34888 ene 29  2017 bunzip2
+-rwxr-xr-x  1 root root 2062296 mar  6 21:51 busybox
+
+9.
+$ cat /etc/passwd 
+root:x:0:0:root:/root:/bin/sh
+
+$ cat /etc/group 
+root:x:0:root
+
+Només tenim un usuari, root.
+
+10.
+Vam crear el directori /home/nou_home
+
+passwd afegit:
+nou_usr:x:1:0:hey:/home/nou_home:/bin/sh
+
+Vam comprovar que existia el nou usuari fent:
+$ su - nou_usr 
+$ pwd
+/home/nou_home
+
+11.
+Vam tenir problemes amb el chdir perquè posavem la ruta no tenint en compte el canvi de root, simplement haviem de posar "/".
+
+12.
+Fallava la xarxa udhcpc, però observavem la resta de processos amb "ps -eF".
